@@ -65,7 +65,7 @@ void Game::gameLoop() {
 		}
 
 		// if key pressed was esc, quit the game loop
-		if (input.wasKeyPresed(SDL_SCANCODE_ESCAPE) == true) {
+		if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) == true) {
 			return;
 		}
 
