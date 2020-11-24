@@ -1,6 +1,8 @@
 #include <SDL.h>
 #include <algorithm>
 
+
+
 #include "game.h"
 #include "graphics.h"
 #include "input.h"
@@ -35,6 +37,9 @@ void Game::gameLoop() {
 	SDL_Event event; // this SDL_Event object will hold what ever event that happens during that frame
 	// it stores the event through SDL by checking
 	
+	this->_player = Sprite(graphics, "content/sprites/MyChar.png", 0, 0, 16, 16, 100, 100);
+
+
 	// gets the number of miliseconds passed since initialisation of SDL
 	int LAST_UPDATE_TIME = SDL_GetTicks();
 
@@ -82,11 +87,17 @@ void Game::gameLoop() {
 		// in the same time, even though the physics may look choppy
 		this->update(std::min(ELAPSED_TIME_MS, MAX_FRAME_TIME));
 		LAST_UPDATE_TIME = CURRENT_TIME_MS;
+
+		this->draw(graphics);
 	}
 }
 
 void Game::draw(Graphics& graphics) {
-
+	graphics.clear();
+	
+	this->_player.draw(graphics, 100, 100);
+	
+	graphics.flip();
 }
 
 void Game::update(float elapsedTime) {
