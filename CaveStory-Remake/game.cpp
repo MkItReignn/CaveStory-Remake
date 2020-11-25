@@ -37,8 +37,9 @@ void Game::gameLoop() {
 	SDL_Event event; // this SDL_Event object will hold what ever event that happens during that frame
 	// it stores the event through SDL by checking
 	
-	this->_player = Sprite(graphics, "content/sprites/MyChar.png", 0, 0, 16, 16, 100, 100);
-
+	this->_player = AnimatedSprite(graphics, "content/sprites/MyChar.png", 0, 0, 16, 16, 100, 100, 100);
+	this->_player.setupAnimations();
+	this->_player.playAnimation("RunRight");
 
 	// gets the number of miliseconds passed since initialisation of SDL
 	int LAST_UPDATE_TIME = SDL_GetTicks();
@@ -101,5 +102,5 @@ void Game::draw(Graphics& graphics) {
 }
 
 void Game::update(float elapsedTime) {
-
+	this->_player.update(elapsedTime);
 }
