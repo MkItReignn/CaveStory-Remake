@@ -24,7 +24,7 @@ void Input::keyDownEvent(const SDL_Event& event) {
 // this gets called when a key is released
 void Input::keyUpEvent(const SDL_Event& event) {
 	this->_releasedKeys[event.key.keysym.scancode] = true;
-	// we no longer holding it, hence false?
+	// we no longer holding it, hence false
 	this->_heldKeys[event.key.keysym.scancode] = false;
 }
 

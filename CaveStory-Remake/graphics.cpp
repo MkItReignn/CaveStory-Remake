@@ -9,6 +9,7 @@ Holds all information dealing with graphics for the game
 
 // constructor needs to create the window and initialise
 Graphics::Graphics() {
+	// use this to render it onto the screen
 	SDL_CreateWindowAndRenderer(globals::SCREEN_WIDTH, globals::SCREEN_HEIGHT, 0, &this->_window, &this->_renderer);
 	SDL_SetWindowTitle(this->_window, "Cavestory");
 }

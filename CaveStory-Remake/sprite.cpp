@@ -10,11 +10,15 @@ Sprite::Sprite(Graphics &graphics, const std::string &filePath, int sourceX, int
 		_x(posX),
 		_y(posY)
 {
+	// sets properties of sourceRect of position (x,y) and dimensions (width, height)
 	this->_sourceRect.x = sourceX;
 	this->_sourceRect.y = sourceY;
 	this->_sourceRect.w = width;
 	this->_sourceRect.h = height;
 
+	// store sprite into sprite sheet
+	// grabs the rendered data from graphics class
+	// loads image of filePath 
 	this->_spriteSheet = SDL_CreateTextureFromSurface(graphics.getRenderer(), graphics.loadImage(filePath));
 	if (this->_spriteSheet == NULL) {
 		printf("\nError: unable to load image\n");

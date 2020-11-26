@@ -53,6 +53,8 @@ public:
 private:
 	SDL_Window* _window; // where we are drawing to
 	SDL_Renderer* _renderer; // what actually does all the drawing to the window
+
+
 	// going to hold in memory, every sprite graphics loaded up into the game
 	// if it is already loaded once, you won't have to load it again
 	std::map<std::string, SDL_Surface*> _spriteSheets;

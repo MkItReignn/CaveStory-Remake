@@ -37,9 +37,7 @@ void Game::gameLoop() {
 	SDL_Event event; // this SDL_Event object will hold what ever event that happens during that frame
 	// it stores the event through SDL by checking
 	
-	this->_player = AnimatedSprite(graphics, "content/sprites/MyChar.png", 0, 0, 16, 16, 100, 100, 100);
-	this->_player.setupAnimations();
-	this->_player.playAnimation("RunRight");
+	this->_player = Player(graphics, 100, 100);
 
 	// gets the number of miliseconds passed since initialisation of SDL
 	int LAST_UPDATE_TIME = SDL_GetTicks();
@@ -74,6 +72,16 @@ void Game::gameLoop() {
 		if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) == true) {
 			return;
 		}
+		else if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
+			this->_player.moveLeft();
+		}
+		else if (input.isKeyHeld(SDL_SCANCODE_RIGHT) == true) {
+			this->_player.moveRight();
+		}
+
+		if (!input.isKeyHeld(SDL_SCANCODE_LEFT) && !input.isKeyHeld(SDL_SCANCODE_RIGHT)) {
+			this->_player.stopMoving();
+		}
 
 		// how long it took for the while loop to occur
 		// found by current - last update
@@ -96,7 +104,7 @@ void Game::gameLoop() {
 void Game::draw(Graphics& graphics) {
 	graphics.clear();
 	
-	this->_player.draw(graphics, 100, 100);
+	this->_player.draw(graphics);
 	
 	graphics.flip();
 }
