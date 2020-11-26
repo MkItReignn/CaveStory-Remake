@@ -14,7 +14,7 @@ Player::Player(Graphics& graphics, float x, float y) :
 	this->_facing = RIGHT;
 	this->setupAnimations();
 
-	this->playAnimation("RunRight");
+	this->playAnimation("IdleRight");
 }
 
 
