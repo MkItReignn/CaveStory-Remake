@@ -39,7 +39,7 @@ void AnimatedSprite::resetAnimations() {
 }
 
 void AnimatedSprite::playAnimation(std::string animation, bool once) {
-	this->_currentAnimation = once;
+	this->_currentAnimationOnce = once;
 	if (this->_currentAnimation != animation) {
 		this->_currentAnimation = animation;
 		this->_frameIndex = 0;
@@ -98,8 +98,4 @@ void AnimatedSprite::draw(Graphics& graphics, int x, int y) {
 
 	}
 }
-
-//void AnimatedSprite::animationDone(std::string currentAnimation) {
-//
-//}
 

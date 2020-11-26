@@ -79,9 +79,8 @@ protected:
 private:
 	// have a map full of animations
 	// keeps tracks of all the animations a sprite has
-	std::map<std::string, std::vector<SDL_Rect>> _animations;
+	std::map<std::string, std::vector<SDL_Rect> > _animations;
 
-	
 	std::map<std::string, Vector2> _offsets;
 
 	int _frameIndex;
