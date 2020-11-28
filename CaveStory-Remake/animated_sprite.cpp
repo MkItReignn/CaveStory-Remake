@@ -25,7 +25,6 @@ void AnimatedSprite::addAnimation(int frames, int x, int y, std::string name, in
 	for (int i = 0; i < frames; i++) {
 		SDL_Rect newRect = { (i + x) * width, y, width, height };
 		rectangles.push_back(newRect);
-
 	}
 	this->_animations.insert(std::pair<std::string, std::vector<SDL_Rect> >(name, rectangles));
 	this->_offsets.insert(std::pair<std::string, Vector2>(name, offset));
