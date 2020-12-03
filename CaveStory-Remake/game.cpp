@@ -38,7 +38,7 @@ void Game::gameLoop() {
 	// it stores the event through SDL by checking
 	
 	this->_player = Player(graphics, 100, 100);
-	this->_level = Level("map 1", Vector2(100, 100), graphics);
+	this->_level = Level("Map 1", Vector2(100, 100), graphics);
 	// gets the number of miliseconds passed since initialisation of SDL
 	int LAST_UPDATE_TIME = SDL_GetTicks();
 
