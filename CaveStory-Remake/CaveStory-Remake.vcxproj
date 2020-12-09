@@ -166,9 +166,11 @@
     <ClInclude Include="level.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="rectangle.h" />
+    <ClInclude Include="slope.h" />
     <ClInclude Include="sprite.h" />
     <ClInclude Include="tile.h" />
     <ClInclude Include="tinyxml2.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="content\maps\Map 1.tmx" />

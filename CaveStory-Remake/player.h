@@ -4,7 +4,7 @@
 
 #include "animated_sprite.h"
 #include "globals.h"
-
+#include "slope.h"
 
 class Graphics;
 
@@ -28,11 +28,17 @@ public:
 	Stops moving the player 
 	*/
 	void stopMoving();
+	/* void jump
+	Starts jumping	
+	*/
+	void jump();
+
 
 	virtual void animationDone(std::string currentAnimation);
 	virtual void setupAnimations();
 
 	void handleTileCollisions(std::vector<Rectangle>& others);
+	void handleSlopeCollisoins(std::vector<Slope>& others);
 
 	const float getX() const;
 	const float getY() const;
