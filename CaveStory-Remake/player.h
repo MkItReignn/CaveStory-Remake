@@ -25,20 +25,35 @@ public:
 	*/
 	void moveRight();
 	/* void stopMoving
-	Stops moving the player 
+	Stops moving the player
 	*/
 	void stopMoving();
 	/* void jump
-	Starts jumping	
+	Starts jumping
 	*/
 	void jump();
-
+	/* void lookUp
+	The player looks up
+	*/
+	void lookUp();
+	/* void stopLookingUp
+	The player stops looking up
+	*/
+	void stopLookingUp();
+	/* void lookDown()
+	The player looks down OR interacts (turns around)
+	*/
+	void lookDown();
+	/* voidstopLookingDown
+	The player stops looking down or interacting
+	*/
+	void stopLookingDown();
 
 	virtual void animationDone(std::string currentAnimation);
 	virtual void setupAnimations();
 
 	void handleTileCollisions(std::vector<Rectangle>& others);
-	void handleSlopeCollisoins(std::vector<Slope>& others);
+	void handleSlopeCollisions(std::vector<Slope>& others);
 
 	const float getX() const;
 	const float getY() const;
@@ -51,6 +66,9 @@ private:
 
 	// true if we are on the ground, false if we are not
 	bool _grounded;
+
+	bool _lookingUp;
+	bool _lookingDown;
 };
 
 #endif // !PLAYER_H

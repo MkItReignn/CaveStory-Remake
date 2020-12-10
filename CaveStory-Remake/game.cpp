@@ -2,7 +2,6 @@
 #include <algorithm>
 
 
-
 #include "game.h"
 #include "graphics.h"
 #include "input.h"
@@ -32,13 +31,14 @@ Game::~Game() {
 // one of the most important functions in the entire program
 // 
 void Game::gameLoop() {
+
 	Graphics graphics;
-	Input input; 
+	Input input;
 	SDL_Event event; // this SDL_Event object will hold what ever event that happens during that frame
 	// it stores the event through SDL by checking
 	this->_level = Level("Map 1", Vector2(100, 100), graphics);
 	this->_player = Player(graphics, this->_level.getPlayerSpawnPoint());
-	
+
 	// gets the number of miliseconds passed since initialisation of SDL
 	int LAST_UPDATE_TIME = SDL_GetTicks();
 
@@ -57,14 +57,14 @@ void Game::gameLoop() {
 				if (event.key.repeat == 0) {
 					input.keyDownEvent(event);
 				}
-			} 
+			}
 			else if (event.type == SDL_KEYUP) {
 				input.keyUpEvent(event);
 			}
 			// when you close the program or quit the program
 			else if (event.type == SDL_QUIT) {
 				return;
-			} 		 
+			}
 
 		}
 
@@ -78,6 +78,21 @@ void Game::gameLoop() {
 		else if (input.isKeyHeld(SDL_SCANCODE_RIGHT) == true) {
 			this->_player.moveRight();
 		}
+
+		if (input.isKeyHeld(SDL_SCANCODE_UP) == true) {
+			this->_player.lookUp();
+		}
+		else if (input.isKeyHeld(SDL_SCANCODE_DOWN) == true) {
+			this->_player.lookDown();
+		}
+
+		if (input.wasKeyReleased(SDL_SCANCODE_UP) == true) {
+			this->_player.stopLookingUp();
+		}
+		if (input.wasKeyReleased(SDL_SCANCODE_DOWN) == true) {
+			this->_player.stopLookingDown();
+		}
+
 
 		if (input.wasKeyPressed(SDL_SCANCODE_Z) == true) {
 			this->_player.jump();
@@ -106,10 +121,10 @@ void Game::gameLoop() {
 
 void Game::draw(Graphics& graphics) {
 	graphics.clear();
-	
+
 	this->_level.draw(graphics);
 	this->_player.draw(graphics);
-	
+
 	graphics.flip();
 }
 
@@ -126,6 +141,6 @@ void Game::update(float elapsedTime) {
 	// Check slopes
 	std::vector<Slope> otherSlopes;
 	if ((otherSlopes = this->_level.checkSlopeCollisions(this->_player.getBoundingBox())).size() > 0) {
-		this->_player.handleSlopeCollisoins(otherSlopes);
+		this->_player.handleSlopeCollisions(otherSlopes);
 	}
 }

@@ -2,6 +2,8 @@
 #include "player.h"
 #include "graphics.h"
 
+#include <iostream>
+
 namespace player_constants {
 	const float WALK_SPEED = 0.2f;
 	const float JUMP_SPEED = 0.7f;
@@ -17,12 +19,13 @@ Player::Player(Graphics& graphics, Vector2 spawnPoint) :
 	_dx(0),
 	_dy(0),
 	_facing(RIGHT),
-	_grounded(false)
+	_grounded(false),
+	_lookingUp(false),
+	_lookingDown(false)
 {
 	graphics.loadImage("content/sprites/MyChar.png");
 	//this->_facing = RIGHT;
 	this->setupAnimations();
-
 	this->playAnimation("IdleRight");
 }
 
@@ -32,6 +35,20 @@ void Player::setupAnimations() {
 	this->addAnimation(1, 0, 16, "IdleRight", 16, 16, Vector2(0, 0));
 	this->addAnimation(3, 0, 0, "RunLeft", 16, 16, Vector2(0, 0));
 	this->addAnimation(3, 0, 16, "RunRight", 16, 16, Vector2(0, 0));
+
+	//
+
+
+	this->addAnimation(1, 3, 0, "IdleLeftUp", 16, 16, Vector2(0, 0));
+	this->addAnimation(1, 3, 16, "IdleRightUp", 16, 16, Vector2(0, 0));
+	this->addAnimation(3, 3, 0, "RunLeftUp", 16, 16, Vector2(0, 0));
+	this->addAnimation(3, 3, 16, "RunRightUp", 16, 16, Vector2(0, 0));
+	this->addAnimation(1, 6, 0, "LookDownLeft", 16, 16, Vector2(0, 0));
+	this->addAnimation(1, 6, 16, "LookDownRight", 16, 16, Vector2(0, 0));
+	this->addAnimation(1, 7, 0, "LookBackwardsLeft", 16, 16, Vector2(0, 0));
+	this->addAnimation(1, 7, 16, "LookBackwardsRight", 16, 16, Vector2(0, 0));
+
+
 }
 
 void Player::animationDone(std::string currentAnimation) {};
@@ -46,21 +63,64 @@ const float Player::getY() const {
 }
 
 void Player::moveLeft() {
+	if (this->_lookingDown == true && this->_grounded == true) {
+		return;
+	}
 	this->_dx = -player_constants::WALK_SPEED;
-	this->playAnimation("RunLeft");
+	if (this->_lookingUp == false) {
+		this->playAnimation("RunLeft");
+	}
 	this->_facing = LEFT;
 }
 
 void  Player::moveRight() {
+	if (this->_lookingDown == true && this->_grounded == true) {
+		return;
+	}
 	this->_dx = player_constants::WALK_SPEED;
-	this->playAnimation("RunRight");
+	if (this->_lookingUp == false) {
+		this->playAnimation("RunRight");
+	}
 	this->_facing = RIGHT;
 }
 
 void Player::stopMoving() {
 	this->_dx = 0.0f;
-	this->playAnimation(this->_facing == RIGHT ? "IdleRight" : "IdleLeft");
+	if (this->_lookingUp == false && this->_lookingDown == false) {
+		this->playAnimation(this->_facing == RIGHT ? "IdleRight" : "IdleLeft");
+	}
+
 }
+
+void Player::lookUp() {
+	this->_lookingUp = true;
+	if (this->_dx == 0) {
+		this->playAnimation(this->_facing == RIGHT ? "IdleRightUp" : "IdleLeftUp");
+	}
+	else {
+		this->playAnimation(this->_facing == RIGHT ? "RunRightUp" : "RunLeftUp");
+	}
+}
+
+void Player::stopLookingUp() {
+	this->_lookingUp = false;
+}
+
+void Player::stopLookingDown() {
+	this->_lookingDown = false;
+}
+
+void Player::lookDown() {
+	this->_lookingDown = true;
+	if (this->_grounded == true) {
+		// Need to interact (turn backwards)
+		this->playAnimation(this->_facing == RIGHT ? "LookBackwardsRight" : "LookBackwardsLeft");
+	}
+	else {
+		this->playAnimation(this->_facing == RIGHT ? "LookDownRight" : "LookDownLeft");
+	}
+}
+
 
 void Player::jump() {
 	if (this->_grounded) {
@@ -104,9 +164,10 @@ void Player::handleTileCollisions(std::vector<Rectangle>& others) {
 		}
 	}
 }
+
 // void handleSlopeCollisions
 // Handles collisions with ALL slopes the player is colliding with
-void Player::handleSlopeCollisoins(std::vector<Slope>& others) {
+void Player::handleSlopeCollisions(std::vector<Slope>& others) {
 	for (int i = 0; i < others.size(); i++) {
 		// Calculate where on the slope the player's bottom centre is touching
 		// and use y = mx + b to figure out the y position to place him at
@@ -126,6 +187,7 @@ void Player::handleSlopeCollisoins(std::vector<Slope>& others) {
 	}
 }
 
+
 void Player::update(float elapsedTime) {
 	// Apply gravity
 	if (this->_dy <= player_constants::GRAVITY_CAP) {
@@ -140,6 +202,7 @@ void Player::update(float elapsedTime) {
 	AnimatedSprite::update(elapsedTime);
 }
 
-void Player::draw(Graphics &grpahics) {
+void Player::draw(Graphics& grpahics) {
 	AnimatedSprite::draw(grpahics, this->_x, this->_y);
 }
+
