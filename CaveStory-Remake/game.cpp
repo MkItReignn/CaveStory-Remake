@@ -38,6 +38,7 @@ void Game::gameLoop() {
 	// it stores the event through SDL by checking
 	this->_level = Level("Map 1", Vector2(100, 100), graphics);
 	this->_player = Player(graphics, this->_level.getPlayerSpawnPoint());
+	this->_hud = HUD(graphics, this->_player);
 
 	// gets the number of miliseconds passed since initialisation of SDL
 	int LAST_UPDATE_TIME = SDL_GetTicks();
@@ -125,13 +126,15 @@ void Game::draw(Graphics& graphics) {
 	this->_level.draw(graphics);
 	this->_player.draw(graphics);
 
+	this->_hud.draw(graphics);
+
 	graphics.flip();
 }
 
 void Game::update(float elapsedTime) {
 	this->_player.update(elapsedTime);
 	this->_level.update(elapsedTime);
-
+	this->_hud.update(elapsedTime);
 	// Check collisions
 	std::vector<Rectangle> others;
 	if ((others = this->_level.checkTileCollisions(this->_player.getBoundingBox())).size() > 0) {
