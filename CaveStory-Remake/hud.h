@@ -16,9 +16,17 @@ public:
 private:
 	Player _player;
 
+	// Health Sprites
 	Sprite _healthBarSprite;
 	Sprite _healthNumber1;
-
+	Sprite _currentHealthBar;
+	// Exp Sprites
+	Sprite _lvlWord; // Lv
+	Sprite _lvNumber; // Similar to health number
+	Sprite _expBar;
+	// Weapon Info
+	Sprite _slash;
+	Sprite _dashes;
 };
 
 #endif

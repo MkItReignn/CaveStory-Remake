@@ -14,7 +14,7 @@ This class holds all information for our main game loop
 
 namespace {
 	const int FPS = 50;
-	const int MAX_FRAME_TIME = 5 * 1000 / FPS;
+	const int MAX_FRAME_TIME = 1000 / FPS;
 
 }
 
