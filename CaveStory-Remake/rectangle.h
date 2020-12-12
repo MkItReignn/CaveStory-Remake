@@ -36,7 +36,7 @@ public:
 
 	// bool collidesWith
 	// Takes in another Rectangle and checks if the two are colliding
-	const bool collideWith(const Rectangle& other) const {
+	const bool collidesWith(const Rectangle& other) const {
 		return
 			this->getRight() >= other.getLeft() &&
 			this->getLeft() <= other.getRight() &&
@@ -47,6 +47,9 @@ public:
 	const bool isValidRectangle() const {
 		return (this->_x >= 0 && this->_y >= 0 && this->_width >= 0 && this->_height >= 0);
 	}
+
+	const inline Rectangle getRect() const { return *this; }
+
 
 private:
 	int _x, _y, _width, _height;

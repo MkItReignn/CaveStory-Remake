@@ -36,7 +36,7 @@ void Game::gameLoop() {
 	Input input;
 	SDL_Event event; // this SDL_Event object will hold what ever event that happens during that frame
 	// it stores the event through SDL by checking
-	this->_level = Level("Map 1", Vector2(100, 100), graphics);
+	this->_level = Level("Map 1", graphics);
 	this->_player = Player(graphics, this->_level.getPlayerSpawnPoint());
 	this->_hud = HUD(graphics, this->_player);
 
@@ -107,6 +107,7 @@ void Game::gameLoop() {
 		const int CURRENT_TIME_MS = SDL_GetTicks();
 		// whole purpose of getting ticks is to find Elapsed time		
 		int ELAPSED_TIME_MS = CURRENT_TIME_MS - LAST_UPDATE_TIME;
+		this->_graphics = graphics;
 		// if this frame took less than the maximum time, we will just use that, thats fine
 		// if it too more than its maximum time, it is bound by maximum time
 		// must limit frame or weird things may happen
@@ -135,6 +136,7 @@ void Game::update(float elapsedTime) {
 	this->_player.update(elapsedTime);
 	this->_level.update(elapsedTime);
 	this->_hud.update(elapsedTime);
+
 	// Check collisions
 	std::vector<Rectangle> others;
 	if ((others = this->_level.checkTileCollisions(this->_player.getBoundingBox())).size() > 0) {
@@ -146,4 +148,11 @@ void Game::update(float elapsedTime) {
 	if ((otherSlopes = this->_level.checkSlopeCollisions(this->_player.getBoundingBox())).size() > 0) {
 		this->_player.handleSlopeCollisions(otherSlopes);
 	}
+
+	// Check Doors for collision
+	std::vector<Door> otherDoors;
+	if ((otherDoors = this->_level.checkDoorCollisions(this->_player.getBoundingBox())).size() > 0) {
+		this->_player.handleDoorCollision(otherDoors, this->_level, this->_graphics);
+	}
+
 }

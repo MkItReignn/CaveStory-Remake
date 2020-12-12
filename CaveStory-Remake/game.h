@@ -1,10 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "graphics.h"
 #include "player.h"
 #include "level.h"
 #include "hud.h"
-class Graphics;
+
 
 class Game {
 public:
@@ -20,6 +21,8 @@ private:
 	Level _level;
 
 	HUD _hud;
+
+	Graphics _graphics;
 };
 
 

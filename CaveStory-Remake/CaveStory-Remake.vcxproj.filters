@@ -98,9 +98,15 @@
     <ClInclude Include="hud.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="door.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="content\maps\Map 1.tmx">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\maps\Map 2.tmx">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

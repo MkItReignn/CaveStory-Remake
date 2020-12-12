@@ -1,6 +1,7 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
+#include "door.h"
 #include "tile.h"
 #include "globals.h"
 #include "rectangle.h"
@@ -18,13 +19,16 @@ struct Tileset;
 class Level {
 public:
 	Level();
-	Level(std::string mapName, Vector2 spawnPoint, Graphics& graphics);
+	Level(std::string mapName, Graphics& graphics);
 	~Level();
 	void update(int elapsedTime);
 	void draw(Graphics& graphics);
 
 	std::vector<Rectangle> checkTileCollisions(const Rectangle& other);
 	std::vector<Slope> checkSlopeCollisions(const Rectangle& other);
+
+	std::vector<Door> checkDoorCollisions(const Rectangle& other);
+
 
 	const Vector2 getPlayerSpawnPoint() const;
 
@@ -45,13 +49,15 @@ private:
 	std::vector<AnimatedTile> _animatedTileList;
 	std::vector<AnimatedTileInfo> _animatedTileInfos;
 
+	std::vector<Door> _doorList;
+
 	/* void loadMap
 	Loads a map, will only be called within the level class it self
 	*/
 	void loadMap(std::string mapName, Graphics& graphics);
 
 	Vector2 getTilesetPosition(Tileset tls, int gid, int tileWidth, int tileHeight);
-
+	
 };
 
 
