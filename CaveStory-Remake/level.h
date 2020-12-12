@@ -10,8 +10,9 @@
 #include "slope.h"
 #include "animatedtile.h"
 
-
+class Player;
 class Graphics;
+class Enemy;
 struct SDL_Texture;
 struct SDL_Rect;
 struct Tileset;
@@ -21,7 +22,7 @@ public:
 	Level();
 	Level(std::string mapName, Graphics& graphics);
 	~Level();
-	void update(int elapsedTime);
+	void update(int elapsedTime, Player &player);
 	void draw(Graphics& graphics);
 
 	std::vector<Rectangle> checkTileCollisions(const Rectangle& other);
@@ -51,6 +52,7 @@ private:
 
 	std::vector<Door> _doorList;
 
+	std::vector<Enemy*> _enemies;
 	/* void loadMap
 	Loads a map, will only be called within the level class it self
 	*/

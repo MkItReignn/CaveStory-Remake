@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClCompile Include="animated_sprite.cpp" />
     <ClCompile Include="CaveStory-Remake.cpp" />
+    <ClCompile Include="enemy.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="graphics.cpp" />
     <ClCompile Include="hud.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="animated_sprite.h" />
     <ClInclude Include="animatedtile.h" />
     <ClInclude Include="door.h" />
+    <ClInclude Include="enemy.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="graphics.h" />
