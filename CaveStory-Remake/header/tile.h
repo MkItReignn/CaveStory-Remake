@@ -1,7 +1,7 @@
 #ifndef TILE_H
 #define TILE_H
 
-#include "globals.h"
+#include "../header/globals.h"
 
 struct SDL_Texture;
 class Graphics;

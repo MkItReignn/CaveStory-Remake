@@ -1,7 +1,7 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include "sprite.h"
+#include "../header/sprite.h"
 
 /*
 Graphics Class

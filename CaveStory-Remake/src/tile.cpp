@@ -1,5 +1,5 @@
-#include "tile.h"
-#include "graphics.h"
+#include "../header/tile.h"
+#include "../header/graphics.h"
 
 #include <SDL.h>
 

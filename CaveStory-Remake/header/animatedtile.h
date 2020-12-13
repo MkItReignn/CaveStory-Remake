@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include "tile.h"
-#include "globals.h"
+#include "../header/tile.h"
+#include "../header/globals.h"
 
 class AnimatedTile : public Tile {
 public:

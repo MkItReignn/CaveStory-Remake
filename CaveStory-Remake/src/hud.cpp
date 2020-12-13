@@ -1,6 +1,6 @@
-#include "hud.h"
+#include "../header/hud.h"
 
-#include "graphics.h"
+#include "../header/graphics.h"
 
 HUD::HUD() {}
 

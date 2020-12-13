@@ -4,7 +4,7 @@ The entry point of the game
 */
 
 
-#include "game.h"
+#include "../header/game.h"
 
 int main(int argc, char * argv[])
 {

@@ -1,9 +1,9 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include "animated_sprite.h"
-#include "globals.h"
-#include "player.h"
+#include "../header/animated_sprite.h"
+#include "../header/globals.h"
+#include "../header/player.h"
 
 #include <string>
 

@@ -1,8 +1,8 @@
 #ifndef DOOR_H
 #define DOOR_H
 
-#include "rectangle.h"
-#include "globals.h"
+#include "../header/rectangle.h"
+#include "../header/globals.h"
 
 #include <string>
 

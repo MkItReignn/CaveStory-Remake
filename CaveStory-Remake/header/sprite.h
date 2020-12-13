@@ -6,8 +6,8 @@
 #include <SDL.h>
 #include <string>
 
-#include "rectangle.h"
-#include "globals.h"
+#include "../header/rectangle.h"
+#include "../header/globals.h"
 
 class Graphics;
 /* Sprite Class

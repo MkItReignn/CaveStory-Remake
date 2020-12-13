@@ -1,7 +1,7 @@
 #ifndef  RECTANGLE_H
 #define RECTANGLE_H
 
-#include "globals.h"
+#include "../header/globals.h"
 
 class Rectangle {
 public:

@@ -1,6 +1,6 @@
-#include "slope.h"
-#include "player.h"
-#include "graphics.h"
+#include "../header/slope.h"
+#include "../header/player.h"
+#include "../header/graphics.h"
 #include <iostream>
 
 namespace player_constants {

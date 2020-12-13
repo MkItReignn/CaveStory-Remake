@@ -2,9 +2,9 @@
 #include <algorithm>
 
 
-#include "game.h"
-#include "graphics.h"
-#include "input.h"
+#include "../header/game.h"
+#include "../header/graphics.h"
+#include "../header/input.h"
 
 
 /*

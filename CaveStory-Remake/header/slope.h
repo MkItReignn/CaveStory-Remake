@@ -1,8 +1,8 @@
 #ifndef SLOPE_H
 #define SLOPE_H
 
-#include "rectangle.h"
-#include "globals.h"
+#include "../header/rectangle.h"
+#include "../header/globals.h"
 
 #include <cmath>
 

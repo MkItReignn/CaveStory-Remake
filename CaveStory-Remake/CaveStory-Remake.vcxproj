@@ -146,38 +146,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="animated_sprite.cpp" />
-    <ClCompile Include="CaveStory-Remake.cpp" />
-    <ClCompile Include="enemy.cpp" />
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="graphics.cpp" />
-    <ClCompile Include="hud.cpp" />
-    <ClCompile Include="input.cpp" />
-    <ClCompile Include="level.cpp" />
-    <ClCompile Include="player.cpp" />
-    <ClCompile Include="animated_tile.cpp" />
-    <ClCompile Include="sprite.cpp" />
-    <ClCompile Include="tile.cpp" />
-    <ClCompile Include="tinyxml2.cpp" />
+    <ClCompile Include="src\animated_sprite.cpp" />
+    <ClCompile Include="src\animated_tile.cpp" />
+    <ClCompile Include="src\CaveStory-Remake.cpp" />
+    <ClCompile Include="src\enemy.cpp" />
+    <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\graphics.cpp" />
+    <ClCompile Include="src\hud.cpp" />
+    <ClCompile Include="src\input.cpp" />
+    <ClCompile Include="src\level.cpp" />
+    <ClCompile Include="src\player.cpp" />
+    <ClCompile Include="src\sprite.cpp" />
+    <ClCompile Include="src\tile.cpp" />
+    <ClCompile Include="src\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="animated_sprite.h" />
-    <ClInclude Include="animatedtile.h" />
-    <ClInclude Include="door.h" />
-    <ClInclude Include="enemy.h" />
-    <ClInclude Include="game.h" />
-    <ClInclude Include="globals.h" />
-    <ClInclude Include="graphics.h" />
-    <ClInclude Include="hud.h" />
-    <ClInclude Include="input.h" />
-    <ClInclude Include="level.h" />
-    <ClInclude Include="player.h" />
-    <ClInclude Include="rectangle.h" />
-    <ClInclude Include="slope.h" />
-    <ClInclude Include="sprite.h" />
-    <ClInclude Include="tile.h" />
-    <ClInclude Include="tinyxml2.h" />
-    <ClInclude Include="utils.h" />
+    <ClInclude Include="header\animatedtile.h" />
+    <ClInclude Include="header\animated_sprite.h" />
+    <ClInclude Include="header\door.h" />
+    <ClInclude Include="header\enemy.h" />
+    <ClInclude Include="header\game.h" />
+    <ClInclude Include="header\globals.h" />
+    <ClInclude Include="header\graphics.h" />
+    <ClInclude Include="header\hud.h" />
+    <ClInclude Include="header\input.h" />
+    <ClInclude Include="header\level.h" />
+    <ClInclude Include="header\player.h" />
+    <ClInclude Include="header\rectangle.h" />
+    <ClInclude Include="header\slope.h" />
+    <ClInclude Include="header\sprite.h" />
+    <ClInclude Include="header\tile.h" />
+    <ClInclude Include="header\tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="content\maps\Map 1.tmx" />

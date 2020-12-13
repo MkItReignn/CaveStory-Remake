@@ -1,4 +1,4 @@
-#include "input.h"
+#include "../header/input.h"
 
 /*
 Input Class

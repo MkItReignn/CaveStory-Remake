@@ -1,10 +1,10 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "graphics.h"
-#include "player.h"
-#include "level.h"
-#include "hud.h"
+#include "../header/graphics.h"
+#include "../header/player.h"
+#include "../header/level.h"
+#include "../header/hud.h"
 
 
 class Game {

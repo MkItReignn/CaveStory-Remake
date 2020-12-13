@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 
-#include "globals.h"
-#include "sprite.h"
+#include "../header/globals.h"
+#include "../header/sprite.h"
 
 class Graphics;
 

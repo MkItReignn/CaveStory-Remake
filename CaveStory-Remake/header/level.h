@@ -1,14 +1,14 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
-#include "door.h"
-#include "tile.h"
-#include "globals.h"
-#include "rectangle.h"
+#include "../header/door.h"
+#include "../header/tile.h"
+#include "../header/globals.h"
+#include "../header/rectangle.h"
 #include <string>
 #include <vector>
-#include "slope.h"
-#include "animatedtile.h"
+#include "../header/slope.h"
+#include "../header/animatedtile.h"
 
 class Player;
 class Graphics;

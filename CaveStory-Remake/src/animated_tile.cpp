@@ -1,5 +1,5 @@
-#include "graphics.h"
-#include "animatedtile.h"
+#include "../header/graphics.h"
+#include "../header/animatedtile.h"
 
 AnimatedTile::AnimatedTile(std::vector<Vector2> tilesetPositions,
 	int duration, SDL_Texture* tileset, Vector2 size, Vector2 position) :

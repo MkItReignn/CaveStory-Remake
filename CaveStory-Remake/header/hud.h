@@ -1,8 +1,8 @@
 #ifndef HUD_H
 #define HUD_H
 
-#include "sprite.h"
-#include "player.h"
+#include "../header/sprite.h"
+#include "../header/player.h"
 
 class Graphics;
 
