@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "enemy.h"
 #include "door.h"
 #include "animated_sprite.h"
 #include "globals.h"
@@ -56,13 +57,16 @@ public:
 	void handleTileCollisions(std::vector<Rectangle>& others);
 	void handleSlopeCollisions(std::vector<Slope>& others);
 	void handleDoorCollision(std::vector<Door>& others, Level &level, Graphics &graphics);
-
+	void handleEnemeyCollisions(std::vector<Enemy*>& others);
 
 	const float getX() const;
 	const float getY() const;
 
 	const inline int getMaxHealth() const { return this->_maxHealth; }
 	const inline int getCurrentHealth() const { return this->_currHealth; }
+
+	void gainHealth(int amount);
+
 
 private:
 	// change in x and change in y positoin

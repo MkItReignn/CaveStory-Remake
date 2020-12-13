@@ -7,6 +7,7 @@
 
 #include <string>
 
+class Player;
 class Graphics;
 
 
@@ -18,9 +19,13 @@ public:
 
 	virtual void update(int elapsedTime, Player &player);
 	virtual void draw(Graphics& graphics);
-	
+	virtual void touchPlayer(Player* player) = 0;
+
+
 	const inline int getMaxHealth() const { return this->_maxHealth; }
 	const inline int getCurrentHealth() const { return this->_currHealth; }
+
+
 
 protected:
 	Direction _direction;
@@ -37,11 +42,14 @@ public:
 	Bat(Graphics& graphics, Vector2 spawnPoint);
 	void update(int elapsedTime, Player &player);
 	void draw(Graphics& graphics);
+	void touchPlayer(Player* player);
 
 	void animationDone(std::string currentAnimation);
 	void setupAnimations();
 private:
-
+	float _startingX, _startingY;
+	bool _shouldMoveUp;
+	
 };
 
 
