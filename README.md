@@ -16,4 +16,4 @@ The gameplay of this remake includes:
 
 ## Demo
 
-[![](http://img.youtube.com/vi/i2UhyHLwxJ4/0.jpg)](http://www.youtube.com/watch?v=i2UhyHLwxJ4 "CaveStory Remake")
+[![](http://img.youtube.com/vi/r2RrNeMM9z8/0.jpg)](http://www.youtube.com/watch?v=r2RrNeMM9z8 "CaveStory Remake")
