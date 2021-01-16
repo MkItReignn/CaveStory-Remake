@@ -1,6 +1,6 @@
 # Cave Story Remake
 
-This is a remake of a popular platform game, [Cave Story](https://en.wikipedia.org/wiki/Cave_Story), using original assets. The libraries used were SDL2 and tinyXML. 
+This is a remake of a popular platform game, [Cave Story](https://en.wikipedia.org/wiki/Cave_Story), using original assets. The libraries used were SDL2, SDL2_images and tinyXML. 
 
 ## Features
 
