@@ -4,7 +4,7 @@ This is a remake of a popular platform game, [Cave Story](https://en.wikipedia.o
 
 ## Features
 
-The gameplay of this remake includes:
+The gameplay includes:
 
 - Different Levels
 - Collisions
